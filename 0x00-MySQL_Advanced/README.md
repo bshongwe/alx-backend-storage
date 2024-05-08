@@ -67,19 +67,35 @@
 <br></br>
 
 ### Task 2. Best band ever! 🎸
-- **Description**: Rank country origins of bands by number of fans
+**Description**: Rank country origins of bands by number of fans</br>
+<b>Requirements:</b>
+-	Import this table dump: `metal_bands.sql.zip` <i>(check link on your intranet)</i>
+-	Column names must be: `origin` and `nb_fans`
+-	Your script can be executed on any database
+
+<b>Context:</b> <i>Calculate/compute something is always power intensive… better to distribute the load!</i>
 <br></br>
 
 ### Task 3. Old school band 🎶
-- **Description**: List bands with Glam rock as their main style, ranked by longevity
+**Description**: List bands with `Glam rock` as their main style, ranked by longevity</br>
+<b>Requirements:</b>
+-	Import this table dump: `metal_bands.sql.zip`<i>(check link on your intranet)</i>
+-	Column names must be: `band_name` and `lifespan` (in years until 2022 - please use 2022 instead of YEAR(CURDATE()))
+-	You should use attributes `formed` and `split` for computing the `lifespan`
+-	Your script can be executed on any database
 <br></br>
 
 ### Task 4. Buy buy buy 💳
-- **Description**: Create a trigger to decrease item quantity after adding a new order
+**Description**: Create a trigger to decrease item quantity after adding a new order</br>
+Write a SQL script that creates a trigger that decreases the quantity of an item after adding a new order.</br>
+Quantity in the table `items` can be negative.</br>
+<b>Context:</b> <i>Updating multiple tables for one action from your application can generate issue: network disconnection, crash, etc… to keep your data in a good shape, let MySQL do it for you!</i>
 <br></br>
 
 ### Task 5. Email validation to sent 📧
-- **Description**: Create a trigger to reset `valid_email` attribute only when email has changed
+**Description**: Create a trigger to reset `valid_email` attribute only when email has changed</br>
+Write a SQL script that creates a trigger that resets the attribute `valid_email` only when the `email` has been changed.</br>
+<b>Context:</b> <i>Nothing related to MySQL, but perfect for user email validation - distribute the logic to the database itself!</i>
 <br></br>
 
 ### Task 6. Add bonus 🎉
