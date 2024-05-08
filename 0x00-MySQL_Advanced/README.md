@@ -87,20 +87,17 @@
 
 ### Task 4. Buy buy buy 💳
 **Description**: Create a trigger to decrease item quantity after adding a new order</br>
-Write a SQL script that creates a trigger that decreases the quantity of an item after adding a new order.</br>
 Quantity in the table `items` can be negative.</br>
 <b>Context:</b> <i>Updating multiple tables for one action from your application can generate issue: network disconnection, crash, etc… to keep your data in a good shape, let MySQL do it for you!</i>
 <br></br>
 
 ### Task 5. Email validation to sent 📧
 **Description**: Create a trigger to reset `valid_email` attribute only when email has changed</br>
-Write a SQL script that creates a trigger that resets the attribute `valid_email` only when the `email` has been changed.</br>
 <b>Context:</b> <i>Nothing related to MySQL, but perfect for user email validation - distribute the logic to the database itself!</i>
 <br></br>
 
 ### Task 6. Add bonus 🎉
 **Description**: Create a stored procedure `AddBonus` to add a new correction for a student</br>
-Write a SQL script that creates a stored procedure AddBonus that adds a new correction for a student.</br>
 <b>Requirements:</b>
 -	Procedure AddBonus is taking 3 inputs (in this order):
 	-	`user_id`, a `users.id` value (you can assume `user_id` is linked to an existing users)
@@ -112,43 +109,60 @@ Write a SQL script that creates a stored procedure AddBonus that adds a new corr
 
 ### 7. Average score 📊
 **Description**: Create a stored procedure `ComputeAverageScoreForUser` to compute and store the average score for a student</br>
-Write a SQL script that creates a stored procedure ComputeAverageScoreForUser that computes and store the average score for a student. Note: An average score can be a decimal</br>
 <b>Requirements:</b>
 -	Procedure `ComputeAverageScoreForUser` is taking 1 input:
 	-	`user_id`, a `users.id` value (you can assume `user_id` is linked to an existing users)
 <br></br>
 
-
 ### 8. Optimize simple search 🔍
 **Description**: Create an index `idx_name_first` on the table `names` for the first letter of `name`</br>
-Write a SQL script that creates an index `idx_name_first` on the table names and the first letter of `name`.</br>
 <b>Requirements:</b>
-Import this table dump: names.sql.zip
-Only the first letter of name must be indexed
+-	Import this table dump: `names.sql.zip` <i>(check link on your intranet)</i>
+-	Only the first letter of `name` must be indexed
 
-Context: Index is not the solution for any performance issue, but well used, it’s really powerful!
+<b>Context:</b> <i>Index is not the solution for any performance issue, but well used, it’s really powerful!</i>
 <br></br>
-
 
 ### 9. Optimize search and score 🔢
-- **Description**: Create an index `idx_name_first_score` on the table `names` for the first letter of name and score
+**Description**: Create an index `idx_name_first_score` on the table `names` for the first letter of name and score</b>
+Requirements:
+-	Import this table dump: names.sql.zip
+-	Only the first letter of name AND score must be indexed
 <br></br>
-
 
 ### 10. Safe divide 🛡️
-- **Description**: Create a function `SafeDiv` to divide two numbers safely
+**Description**: Create a function `SafeDiv` to divide two numbers safely</br>
+<b>Requirements:</b>
+-	You must create a function
+-	The function `SafeDiv` takes 2 arguments:
+	-	`a`, INT
+	-	`b`, INT
+-	And returns `a` / `b` or `0` if `b == 0`
 <br></br>
-
 
 ### 11. No table for a meeting 🚫
-- **Description**: Create a view `need_meeting` to list students with a score under 80 and no last meeting or more than 1 month
+**Description**: Create a view `need_meeting` to list students with a score under 80 and no last meeting or more than 1 month</br>
+<b>Requirements:</b>
+-	The view `need_meeting` should return all students name when:
+	-	They score are under (strict) to 80
+	-	AND no `last_meeting` date OR more than a month
 <br></br>
-
 
 ### 12. Average weighted score 📊
-- **Description**: Create a stored procedure `ComputeAverageWeightedScoreForUser` that computes and stores the average weighted score for a student
+**Description**: Create a stored procedure `ComputeAverageWeightedScoreForUser` that computes and stores the average weighted score for a student</br>
+<b>Requirements:</b>
+-	Procedure `ComputeAverageScoreForUser` is taking 1 input:
+	-	`user_id`, a `users.id` value (you can assume `user_id` is linked to an existing `users`)
+
+<b>Tips:</b>
+-	[Calculate-Weighted-Average](https://www.wikihow.com/Calculate-Weighted-Average)
 <br></br>
 
-
 ### 13. Average weighted score for all! 📊
-- **Description**: Create a stored procedure `ComputeAverageWeightedScoreForUsers` that computes and stores the average weighted score for all students
+**Description**: Create a stored procedure `ComputeAverageWeightedScoreForUsers` that computes and stores the average weighted score for all students</br>
+<b>Requirements:</br>
+-	Procedure `ComputeAverageWeightedScoreForUsers` is not taking any input.
+
+<b>Tips:</b>
+-	[Calculate-Weighted-Average](https://www.wikihow.com/Calculate-Weighted-Average)
+
