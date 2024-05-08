@@ -111,7 +111,11 @@ Write a SQL script that creates a stored procedure AddBonus that adds a new corr
 <br></br>
 
 ### 7. Average score 📊
-**Description**: Create a stored procedure `ComputeAverageScoreForUser` to compute and store the average score for a student
+**Description**: Create a stored procedure `ComputeAverageScoreForUser` to compute and store the average score for a student</br>
+Write a SQL script that creates a stored procedure ComputeAverageScoreForUser that computes and store the average score for a student. Note: An average score can be a decimal</br>
+<b>Requirements:</b>
+-	Procedure `ComputeAverageScoreForUser` is taking 1 input:
+	-	`user_id`, a `users.id` value (you can assume `user_id` is linked to an existing users)
 <br></br>
 
 
