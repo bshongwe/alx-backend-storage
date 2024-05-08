@@ -120,7 +120,13 @@ Write a SQL script that creates a stored procedure ComputeAverageScoreForUser th
 
 
 ### 8. Optimize simple search 🔍
-- **Description**: Create an index `idx_name_first` on the table `names` for the first letter of name
+**Description**: Create an index `idx_name_first` on the table `names` for the first letter of `name`</br>
+Write a SQL script that creates an index `idx_name_first` on the table names and the first letter of `name`.</br>
+<b>Requirements:</b>
+Import this table dump: names.sql.zip
+Only the first letter of name must be indexed
+
+Context: Index is not the solution for any performance issue, but well used, it’s really powerful!
 <br></br>
 
 
