@@ -1,2 +1,2 @@
-// Task 1 - List all MongoDB databases.
+// Task 0 - List all MongoDB databases.
 show dbs;
