@@ -6,7 +6,7 @@ Module: Task 14.
 
 def top_students(mongo_collection):
     """
-    Prints all students in a collection sorted by average score.
+    Prints all students in collection sorted by average score.
     """
     students = mongo_collection.aggregate(
         [
