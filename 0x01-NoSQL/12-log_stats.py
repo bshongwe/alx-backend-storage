@@ -15,7 +15,7 @@ def print_nginx_request_logs(nginx_collection):
         print('\tmethod {}: {}'.format(method, req_count))
     status_checks_count = len(list(
         nginx_collection.find({'method': 'GET', 'path': '/status'})
-    ))
+        ))
     print('{} status check'.format(status_checks_count))
 
 
