@@ -8,7 +8,9 @@ from typing import Union
 
 
 class Cache:
-    """Represents object for storing data in Redis data storage."""
+    """
+    Represents object for storing data in Redis data storage.
+    """
 
 
     def __init__(self) -> None:
