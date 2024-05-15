@@ -108,7 +108,7 @@ class Cache:
 
 
 if __name__ == "__main__":
-#    cache = Cache()
+    cache = Cache()
 #    cache.store("foo")
 #    cache.store("bar")
 #    cache.store(42)
