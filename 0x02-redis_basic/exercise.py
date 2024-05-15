@@ -5,6 +5,7 @@ Module: Redis NoSQL data storage.
 import uuid
 import redis
 from typing import Union, Callable, Any
+from functools import wraps
 
 
 def call_history(func):
