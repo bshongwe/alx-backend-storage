@@ -9,15 +9,11 @@ from typing import Callable
 
 
 redis_store = redis.Redis()
-"""
-The module-level Redis instance.
-"""
+"""The module-level Redis instance."""
 
 
 def data_cacher(method: Callable) -> Callable:
-    """
-    Caches the output of fetched data.
-    """
+    """Caches the output of fetched data."""
     @wraps(method)
     def invoker(url) -> str:
         """The wrapper function for caching the output."""
@@ -35,7 +31,7 @@ def data_cacher(method: Callable) -> Callable:
 @data_cacher
 def get_page(url: str) -> str:
     """
-    Returns content of URL after caching request's response,
-    and tracking request.
+    Returns content of URL after caching request's
+    response, and tracking request.
     """
     return requests.get(url).text
