@@ -8,11 +8,10 @@ from typing import Union, Callable, Any
 from functools import wraps
 
 
-def call_history(func):
+def call_history(method: Callable) -> Callable:
     """
     Tracks call details of Cache class method.
     """
-
     @wraps(method)
     def invoker(self, *args, **kwargs) -> Any:
         """Returns method output after storing its inputs and output."""
@@ -27,11 +26,10 @@ def call_history(func):
     return invoker
 
 
-def count_calls(func):
+def count_calls(method: Callable) -> Callable:
     """
     Tracks number of calls made to Cache class method.
     """
-
     @wraps(method)
     def invoker(self, *args, **kwargs) -> Any:
         """Invokes given method after incrementing its call counter."""
@@ -71,14 +69,10 @@ class Cache:
     """
     Represents object for storing data in Redis data storage.
     """
-
     def __init__(self) -> None:
-        """
-        Initializes a Cache instance.
-        """
+        """Initializes a Cache instance."""
         self._redis = redis.Redis()
         self._redis.flushdb(True)
-
 
     @call_history
     @count_calls
@@ -98,31 +92,20 @@ class Cache:
         optionally converts it using fn.
         """
         data = self._redis.get(key)
-        if data is None:
-            return None
-        if fn is None:
-            return data
-        return fn(data)
+        return fn(data) if fn is not None else data
 
-    def get_str(self, key: str) -> Any:
+    def get_str(self, key: str) -> str:
         """Retrieves a string value from Redis data storage."""
         return self.get(key, lambda d: d.decode("utf-8"))
 
-    def get_int(self, key: str) -> Any:
+    def get_int(self, key: str) -> int:
         """Retrieves an integer value from Redis data storage."""
         return self.get(key, lambda d: int(d))
 
 
 if __name__ == "__main__":
     cache = Cache()
-
-    TEST_CASES = {
-        b"foo": None,
-        123: int,
-        "bar": lambda d: d.decode("utf-8")
-    }
-
-    for value, fn in TEST_CASES.items():
-        key = cache.store(value)
-        assert cache.get(key, fn=fn) == value
-
+    cache.store("foo")
+    cache.store("bar")
+    cache.store(42)
+    replay(cache.store)
