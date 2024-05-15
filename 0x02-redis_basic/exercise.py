@@ -78,7 +78,7 @@ class Cache:
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
-        Stores value in Redis data storage, returns the key.
+        Stores value in Redis data storage, returns key.
         """
         data_key = str(uuid.uuid4())
         self._redis.set(data_key, data)
@@ -97,12 +97,14 @@ class Cache:
         return fn(data) if fn is not None else data
 
     def get_str(self, key: str) -> str:
-        """Retrieves a string value from Redis data storage."""
-        return self.get(key, lambda x: x.decode("utf-8"))
+        """Retrieves string value from Redis data storage."""
+        return self.get(key, lambda x: x.decode('utf-8'))
 
     def get_int(self, key: str) -> int:
-        """Retrieves an integer value from Redis data storage."""
+        """Retrieves int value from Redis data storage."""
         return self.get(key, lambda x: int(x))
+
+
 
 
 #if __name__ == "__main__":
