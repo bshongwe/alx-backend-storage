@@ -41,7 +41,7 @@ class Cache:
     def __init__(self) -> None:
         """Initializes a Cache instance."""
         self._redis = redis.Redis()
-        self._redis.flushdb()
+        self._redis.flushdb(True)
 
     @call_history
     @count_calls
@@ -51,17 +51,21 @@ class Cache:
         self._redis.set(data_key, data)
         return data_key
 
-    def get(self, key: str, fn: Callable[[bytes], Any] = None) -> Any:
+    def get(
+            self,
+            key: str,
+            fn: Callable = None,
+            ) -> Union[str, bytes, int, float]:
         """
         Retrieves value from Redis data storage,
         optionally converts it using fn.
         """
-        value = self._redis.get(key)
-        if value is None:
+        data = self._redis.get(key)
+        if data is None:
             return None
         if fn is None:
-            return value
-        return fn(value)
+            return data
+        return fn(data)
 
     def get_str(self, key: str) -> Any:
         """Retrieves a string value from Redis data storage."""
