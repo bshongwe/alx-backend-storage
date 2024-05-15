@@ -105,9 +105,9 @@ class Cache:
         return self.get(key, lambda x: int(x))
 
 
-if __name__ == "__main__":
-    cache = Cache()
-    cache.store("foo")
-    cache.store("bar")
-    cache.store(42)
-    replay(cache.store)
+#if __name__ == "__main__":
+#    cache = Cache()
+#    cache.store("foo")
+#    cache.store("bar")
+#    cache.store(42)
+#    replay(cache.store)
